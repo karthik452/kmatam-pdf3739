@@ -50,14 +50,14 @@ app.post('/afd_pdf', (req, res) => {
     const serialnumber2 = form.getTextField('Serial Number');
 
 
-    serviceauthname.setText(SERAUTHNAME);
-    servicenumber.setText(SERNUM);
-    serviceauthph.setText(SERAUTHPH);
-    serviceauthemail.setText(SERAUTHEMAIL);
-    serviceauthcmpyname.setText(SERAUTHCMPY);
-    modelnumber.setText(MODELNUMBER);
-    desc.setText(DESCRIPTION);
-    serialnumber.setText(SERIALNUMBER);
+    serviceauthname.setText(reqBody.SERAUTHNAME);
+    servicenumber.setText(reqBody.SERNUM);
+    serviceauthph.setText(reqBody.SERAUTHPH);
+    serviceauthemail.setText(reqBody.SERAUTHEMAIL);
+    serviceauthcmpyname.setText(reqBody.SERAUTHCMPY);
+    modelnumber.setText(reqBody.MODELNUMBER);
+    desc.setText(reqBody.DESCRIPTION);
+    serialnumber.setText(reqBody.SERIALNUMBER);
     sertype.setText('ZTEST');
     custNotes.setText('Test Notes /n 12345678990');
     shipcmpyname.setText('Ship Company');
