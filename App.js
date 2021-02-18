@@ -21,7 +21,9 @@ app.post('/afd_pdf', (req, res) => {
   const reqBody = req.body;
   console.log('You provided Service Authorizer Name:' + reqBody.SERAUTHNAME + ', Service Number:' + reqBody.SERNUM + ', Service Authorizer Phone:' + reqBody.SERAUTHPH
     + ', Service Authorizer Email:' + reqBody.SERAUTHEMAIL + ', Service Authorizer Company Name:' + reqBody.SERAUTHCMPY + ', ModelNumber:' + reqBody.MODELNUMBER + ', SerailNumber:' + reqBody.SERIALNUMBER
-    + ', Description:' + reqBody.DESCRIPTION);
+    + ', Description:' + reqBody.DESCRIPTION + ', Service Type:' + reqBody.SERTYPE + ', Customer Notes:' + reqBody.CUSTNOTES + ',Shipping Company Name' + reqBody.SHIPCMPYNAME
+    + ', Shipping Attention To' + reqBody.SHIPATTO + ', Shipping Address 1' + reqBody.SHIPADDR1 + ', Shippig Address 2' + reqBody.SHIPADDR2 + ', Shipping City' + reqBody.SHIPCITY
+    + ', Shipping Country' + reqBody.SHIPCOUNTRY + ', Shipping Zip Code' + reqBody.SHIPZIP + ', Shipping Phone' + reqBody.SHIPPH + ', Model Number' + reqBody.MODELNUMBER2 + ', Serail Number' + reqBody.SERIALNUMBER2);
 
     run().catch(err => console.log(err));
 
@@ -58,20 +60,20 @@ app.post('/afd_pdf', (req, res) => {
     modelnumber.setText(reqBody.MODELNUMBER);
     desc.setText(reqBody.DESCRIPTION);
     serialnumber.setText(reqBody.SERIALNUMBER);
-    sertype.setText('ZTEST');
-    custNotes.setText('Test Notes /n 12345678990');
-    shipcmpyname.setText('Ship Company');
-    shipattto.setText('Shipping Attention Test');
-    shipaddr1.setText('Vill number 230');
-    shipaddr2.setText('Beeramguda');
-    shipcity.setText('Hyderabad');
-    shipcountry.setText('India');
-    shipzip.setText('502032');
-    shipph.setText('9603938536');
-    modelnumber2.setText('TEST12345');
-    serialnumber2.setText('SERIAL1234567');
+    sertype.setText(reqBody.SERTYPE);
+    custNotes.setText(reqBody.CUSTNOTES);
+    shipcmpyname.setText(reqBody.SHIPCMPYNAME);
+    shipattto.setText(reqBody.SHIPATTO);
+    shipaddr1.setText(reqBody.SHIPADDR1);
+    shipaddr2.setText(reqBody.SHIPADDR2);
+    shipcity.setText(reqBody.SHIPCITY);
+    shipcountry.setText(reqBody.SHIPCOUNTRY);
+    shipzip.setText(reqBody.SHIPZIP);
+    shipph.setText(reqBody.SHIPPH);
+    modelnumber2.setText(reqBody.MODELNUMBER2);
+    serialnumber2.setText(reqBody.SERIALNUMBER2);
     //res.setHeader('Content-disposition', 'attachment; filename=' + reqBody.form + '_' + reqBody.workorder + '.pdf');
-    res.setHeader('Content-disposition', 'inline; filename=' + reqBody.FORM + '_' + reqBody.WORKORDER + '.pdf');
+    res.setHeader('Content-disposition', 'inline; filename=' + reqBody.SERNUM + '_' + reqBody.SERAUTHNAME + '.pdf');
     res.setHeader('Content-type', 'application/pdf');
     // Write the PDF to a fil]e
     const pdfBytes = await content.save();
